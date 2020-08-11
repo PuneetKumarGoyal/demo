@@ -1,0 +1,27 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+
+node_modules/
+/frontend/dist
+*.iml
+target/
+src/main/resources/static/dist/
+dependency-reduced-pom.xml
+.classpath
+.project
+.settings/
+logs/
+package-lock.json
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
