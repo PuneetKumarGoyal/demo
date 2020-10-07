@@ -16,7 +16,20 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<project.scm.id>github</project.scm.id>
 	</properties>
+
+	<distributionManagement>
+		<repository>
+			<id>github</id>
+			<name>GitHub</name>
+			<url>https://maven.pkg.github.com/PuneetKumarGoyal/demo</url>
+		</repository>
+	</distributionManagement>
+
+	<scm>
+		<developerConnection>scm:git:https://github.com/PuneetKumarGoyal/demo.git</developerConnection>
+	</scm>
 
 	<dependencies>
 		<dependency>
