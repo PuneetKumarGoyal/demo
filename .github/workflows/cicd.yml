@@ -33,14 +33,11 @@ jobs:
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
 
-      - name: Deploy JAR
-        run: mvn deploy -Dregistry=https://maven.pkg.github.com/PuneetKumarGoyal -Dtoken=GH_TOKEN
+      - name: Publish JAR
+        run: ./mvnw -B release:prepare release:perform
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build Docker
-        run: docker build . -t bcrshared.azurecr.io/test:${{ github.sha }}
-      
       - uses: homoluctus/gitrivy@v1.0.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
