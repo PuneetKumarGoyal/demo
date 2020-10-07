@@ -27,7 +27,17 @@ jobs:
           
       - name: Maven Package
         run: mvn clean package -DskipTests --file pom.xml
-           
+
+      - name: Configure Git user
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
+      - name: Publish JAR
+        run: mvn -B release:prepare release:perform
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Build Docker
         run: docker build . -t bcrshared.azurecr.io/test:${{ github.sha }}
       
